@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Anish 🎂</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.card {
+    width: 92%;
+    max-width: 430px;
+    min-height: 600px;
+    background: rgba(255,255,255,0.95);
+    border-radius: 30px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.emoji {
+    font-size: 65px;
+    animation: bounce 1.5s infinite;
+}
+
+h1 {
+    color: #ff477e;
+    margin: 10px 0;
+    font-size: 32px;
+}
+
+h2 {
+    color: #333;
+    font-size: 23px;
+}
+
+p {
+    color: #555;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+.buttons {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    min-height: 70px;
+}
+
+button {
+    border: none;
+    border-radius: 30px;
+    padding: 14px 30px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#yes {
+    background: #ff477e;
+    color: white;
+}
+
+#no {
+    background: #eee;
+    color: #333;
+    position: relative;
+}
+
+button:hover {
+    transform: scale(1.08);
+}
+
+.hidden {
+    display: none;
+}
+
+.final {
+    animation: pop 0.7s ease;
+}
+
+.big {
+    font-size: 75px;
+}
+
+.birthday {
+    color: #ff477e;
+    font-size: 36px;
+    font-weight: bold;
+}
+
+.small {
+    font-size: 14px;
+    color: #888;
+}
+
+.confetti {
+    position: fixed;
+    top: -20px;
+    font-size: 25px;
+    animation: fall 3s linear forwards;
+    pointer-events: none;
+}
+
+@keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+}
+
+@keyframes pop {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <!-- START SCREEN -->
+    <div id="start">
+        <div class="emoji">🎁</div>
+
+        <h1>Hey Anish! 👀</h1>
+
+        <p>
+            Someone has prepared a tiny surprise for you...
+        </p>
+
+        <h2>Are you ready? 😏</h2>
+
+        <div class="buttons">
+            <button id="yes" onclick="startGame()">YES 💗</button>
+            <button id="no" onmouseover="runAway(this)" onclick="runAway(this)">
+                NO 😐
+            </button>
+        </div>
+    </div>
+
+
+    <!-- GAME SCREEN -->
+    <div id="game" class="hidden">
+
+        <div class="emoji">😏</div>
+
+        <h1 id="question"></h1>
+
+        <p id="subtext"></p>
+
+        <div class="buttons">
+            <button id="yes" onclick="nextQuestion()">YES ❤️</button>
+
+            <button id="no" onclick="runAway(this)" onmouseover="runAway(this)">
+                NO 😭
+            </button>
+        </div>
+
+    </div>
+
+
+    <!-- FINAL SCREEN -->
+    <div id="final" class="hidden final">
+
+        <div class="big">🎉🎂🎈</div>
+
+        <div class="birthday">
+            HAPPY BIRTHDAY<br>
+            ANISH! 🥳
+        </div>
+
+        <p>
+            You finally made it! 😂❤️
+        </p>
+
+        <p>
+            Wishing you lots of happiness, success,
+            amazing memories and an absolutely
+            awesome year ahead! ✨
+        </p>
+
+        <p>
+            Stay happy, stay crazy and keep smiling! 😎
+        </p>
+
+        <div style="font-size:45px;">
+            🎁 ❤️ 🥳 🎂
+        </div>
+
+        <p class="small">
+            Made specially for Anish 💫
+        </p>
+
+    </div>
+
+</div>
+
+
+<script>
+
+let currentQuestion = 0;
+
+const questions = [
+    {
+        q: "Do you think today is a special day? 👀",
+        s: "Think carefully... 😏"
+    },
+    {
+        q: "Do you like birthday surprises? 🎁",
+        s: "You bett
